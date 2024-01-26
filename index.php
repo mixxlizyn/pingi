@@ -77,7 +77,6 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));
  
  foreach($categories as $category){ 
  echo "<li><a href='#'>$category[1]</a></li>"; 
- echo "<hr>"; 
   
  } 
   
@@ -90,7 +89,7 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));
 </div> 
  
 <main>
-    <!-- <section class="last-news">
+<section class="last-news">
       <div class="container">
       <?php
 
@@ -108,7 +107,7 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));
 
         ?>
         </div>
-    </section> -->
+    </section>
 </main>
  
 </body> 
