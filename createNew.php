@@ -1,3 +1,9 @@
+<?php
+include "connect.php"; 
+// $query_category = "SELECT * from categories ";
+// $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
+include "header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
+    <!-- <div class="header">
         <div class="header-div1">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M19 17H1V15H19V17ZM13 11H1V9H13V11ZM1 5V3H19V5H1Z" fill="#BCBFC2"/>
@@ -48,18 +54,14 @@
         </div>
     </div>
     <div class="section">
-        <a href="#">Новости</a>
-        <a href="#">Мнение</a>
-        <a href="#">Наука</a>
-        <a href="#">Жизнь</a>
-        <a href="#">Путешествие</a>
-        <a href="#">Деньги</a>
-        <a href="#">Арты & Дизайн</a>
-        <a href="#">Спорт</a>
-        <a href="#">Люди</a>
-        <a href="#">Лечение</a>
-        <a href="#">Образование</a>
-    </div>
+        <?php
+ foreach($categories as $category){ 
+    echo "<li><a href='#'>$category[1]</a></li>"; 
+     
+    } 
+     
+        ?>
+    </div> -->
     <h2>Добавить пост</h2>
     <main>
  
@@ -86,12 +88,17 @@
             <br>
 
             <select id="userCategory" name="userCategory" >
-            <option value="one">Дети</option>
-            <option value="two">Женщины</option>
-            <option value="true">Мужчины</option>
+            <?php 
+            foreach($categories as $category)  {
+                $id_cat = $category[0];
+                $name = $category[1];
+            echo "<option value ='$id_cat'>$name</option>";
+}
+?>
             </select>
             <br>
             <input type="submit" value="Отправить">
+
 
         </form> 
     </main>
