@@ -5,28 +5,22 @@ $query_get_category = "select * from categories ";
  
 $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); 
 
- 
-//получаем результат запроса из переменной query_get_category  
-//и пользуем его в двумерный массив,где каждый элемент  
-//это массив с построчным получением кортеж5ей из таблицы результата запроса 
- 
-// print_r($categories); 
+
  $news = mysqli_query($con, "select * from news ");
  
 include "header.php"; 
  
 
-$id_cat=isset($_GET['category_id '])?$_GET['category_id ']: false;
+$id_cat=isset($_GET['cat'])?$_GET['cat']: false;
 $quary_cat="";
 
 if ($id_cat) { 
-    var_dump($id_cat);
-    // $query_cat = "SELECT *  FROM news WHERE category_id  = $id_cat"; 
+    $quary_cat = "SELECT *  FROM news WHERE category_id  = $id_cat"; 
 } else { 
-    $query_cat = "select * from news"; 
+    $quary_cat = "select * from news"; 
 } 
  
-$result = mysqli_query($con,$quary_cat );  
+$result = mysqli_query($con, $quary_cat);  
 
 ?> 
  
@@ -57,21 +51,21 @@ $result = mysqli_query($con,$quary_cat );
 <section class="last-news">
       <div class="container">
       <?php
+        if(mysqli_num_rows($result)==0){
+            echo "Нет новостей";
+        }
 
-        while  ($new = mysqli_fetch_assoc($news))
+        while  ($new = mysqli_fetch_assoc($result))
         {
 
-       echo "<div class = 'card'>";
+            echo "<div class = 'card'>";
 
-       $new_id = $new['news_id'];
+            $new_id = $new['news_id'];
 
-       echo "<img  src='images/news/".$new['image']."' id='img'>";
-    //    echo "<h2 class = 'c_title'>" . $new['title'] . "</h2>";
-    echo "<a href='oneNew.php?new=$new_id'>".$new['title']."</a>";
-    //    echo "<p>" . $new['ca'] . "</p>";
-
-       echo "<p>Дата публикации " . $new['publish_date'] . "</p>";
-       echo "</div>";
+            echo "<img  src='images/news/".$new['image']."' id='img'>";
+            echo "<a href='oneNew.php?new=$new_id'>".$new['title']."</a>";
+            echo "<p>Дата публикации " . $new['publish_date'] . "</p>";
+            echo "</div>";
 
         }
 
