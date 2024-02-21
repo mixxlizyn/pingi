@@ -2,6 +2,7 @@
 include "connect.php"; 
 $query_category = "SELECT * from categories ";
 $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,24 +22,20 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
             <p>Разделы</p>
         </div>
         <hr class="hr1">
-        <div class="header-div2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.4354 17.3951L14.146 12.9395C15.2489 11.6301 15.8532 9.98262 15.8532 8.26749C15.8532 4.26026 12.5888 1 8.57659 1C4.56433 1 1.29999 4.26026 1.29999 8.26749C1.29999 12.2747 4.56433 15.535 8.57659 15.535C10.0828 15.535 11.5182 15.0812 12.7454 14.2199L17.0674 18.7093C17.2481 18.8967 17.4911 19 17.7514 19C17.9979 19 18.2317 18.9062 18.4092 18.7355C18.7863 18.3731 18.7983 17.7721 18.4354 17.3951ZM8.57659 2.89587C11.5423 2.89587 13.9549 5.30552 13.9549 8.26749C13.9549 11.2295 11.5423 13.6391 8.57659 13.6391C5.6109 13.6391 3.19823 11.2295 3.19823 8.26749C3.19823 5.30552 5.6109 2.89587 8.57659 2.89587Z" fill="#BCBFC2"/>
-        </svg>
-            <label for="">
-                <input type="search" name="" id="" placeholder="Поиск">
-            </label>
-        </div>
+        <form class="header-div2" method="GET" id="searchForm">
+            <img src="Image/Search.png" alt="">
+         
+                <input type="search" name="search" id="searchInput" placeholder="Поиск">
+              
+            
+        </form>
         <div class="header-div3">
-        <a href="page.php">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 16.6316C16.3675 18.2105 13.7008 19 10 19C6.29917 19 3.63251 18.2105 2 16.6316C2 13.3481 3.90591 10.9832 6.70588 10C7.60059 10.4169 8.59455 11 10 11C11.4054 11 12.3311 10.3926 13.2941 10C16.0575 10.9965 18 13.3748 18 16.6316ZM10 9C7.79086 9 6 7.20914 6 5C6 2.79086 7.79086 1 10 1C12.2091 1 14 2.79086 14 5C14 7.20914 12.2091 9 10 9Z" fill="#BCBFC2"/>
-                    </svg>
-        </a>
+            <img src="Image/Man.png" alt="">
             <a href="auth.php">Войти</a>
-            <a href="reg.php">Регистрация</a>
+            <a href="auth.php">Регистрация</a>
 
         </div>
+      
     </div>
     <hr class="hr2">
     <div class="logo-date">
@@ -56,7 +53,7 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
     <?php  
  
  foreach($categories as $category){ 
- echo "<li><a href='/?cat=$category[0]'>$category[1]</a></li>"; 
+ echo "<li><a href='#'>$category[1]</a></li>"; 
   
  } 
   

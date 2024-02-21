@@ -15,7 +15,7 @@ else if(count($user) == 1){
 	exit();
 }
 
-setcookie('user', $user['name'], time() + 3600, "/");
+setcookie('user', $user['login'], time() + 3600, "/");
 
 header('Location:page.php');
 
