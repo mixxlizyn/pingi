@@ -53,7 +53,7 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
     <?php  
  
  foreach($categories as $category){ 
- echo "<li><a href='#'>$category[1]</a></li>"; 
+ echo "<li><a href='/?cat=$category[0]'>$category[1]</a></li>"; 
   
  } 
   
