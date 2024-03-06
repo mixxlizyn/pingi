@@ -5,12 +5,17 @@ include "connect.php"; //выражение include вкл и выполняет
 
 $id_cat=isset($_GET['cat'])?$_GET['cat']: false;
 $sort=isset($_GET["sort"])?$_GET["sort"]: false; 
-$sort=isset($_GET["sort"])?$_GET["sort"]: false; 
+
 $search=isset($_GET["search"])?$_GET["search"]: false;
 
 $params ="";
 
 $quary="select * from news";
+
+$paginate_count=3;//n lim
+$page=isset($_GET['page'])?$_GET['page']: 1;
+
+$offset=$page * $paginate_count-$paginate_count;
 
 if($sort)
 { 
@@ -33,7 +38,10 @@ if($search)
 {
     $quary = "SELECT * FROM news where title LIKE '%$search%'";
 }
-$news = mysqli_query($con, $quary); 
+$news = mysqli_query($con, $quary. " LIMIT $paginate_count OFFSET $offset"); 
+// пагинаци
+$count_news=mysqli_num_rows(mysqli_query($con, $quary));
+
 
 include "header.php"; 
 ?> 
@@ -43,29 +51,25 @@ include "header.php";
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="css/style.css">    
+
     <title>Пингмяувины</title> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="style.css">
+ 
+   
+    
+
+
+
+
 <!-- ссылки -->
 
 </head> 
 <body> 
 <h1>    
-<a href="#">
+<!-- <a href="#">
     Пингмяувины
 </a>
-</h1>
+</h1> -->
  
 <section class="sort">
         <h4>Сортировка по публикации</h4>
@@ -107,16 +111,31 @@ include "header.php";
 
         ?>
         </div>
+       
     </section>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <?php
+for($i=1; $i<=ceil($count_news/$paginate_count);$i++){?>
+  <li class="page-item"><a class="page-link" href="?page=<?=$i?><?=$id_cat?'&cat=' .$id_cat:''?> <?=$sort?'&sort=' .$sort:''?> ">
+      <?= $i ;?>
+  </a></li>
+<?php } ?>
+    
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 </main>
 <script>
-// $("#searchForm").on('keyup', function(e){
-//     if(e.key ==='Enter'){
-//         <?php
-//         $search = isset($_GET['search']) ? $_GET['search']: false;
-// ?>
-//     }
-// });
+
  </script>
 </body> 
 </html>

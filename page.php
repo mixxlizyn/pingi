@@ -3,6 +3,10 @@ include "connect.php";
 include "header.php";
 $user = $_COOKIE['user'];
 
+
+$userEmail = $_POST["email"];
+
+$userLogin = $_POST["login"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
