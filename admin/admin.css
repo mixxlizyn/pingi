@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ body{
+    overflow-x: hidden;
+} 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15px;
+    gap: 20px;
+}
+.header-div1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+}
+.hr1 {
+    width: 1px;
+    height: 50px;
+    background-color: #D9DADB;
+}
+.header-div2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 60%;
+}
+.header-div3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+.hr2 {
+    margin: 0 auto;
+    width: 1600px;
+    height: 1px;
+    background-color: #D9DADB;
+}
+.logo-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 1%;
+}
+.date-weather {
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.section {
+    background-color: #262D33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+.section li  {
+    list-style: none;
+  
+}
+.section li a {
+    text-decoration: none;
+    color: #fff;
+}
+h2{
+   text-align: center;
+   margin: 20px 0 10px 0;
+}
+main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.newsadd{
+    text-align: center;
+    height: 500px;
+    width: 400px;
+    /* border: 2px rgb(255, 209, 111)  solid; */
+}
+#userImages{
+border: none;
+}
+ .newsadd input{
+    border: 1px solid #262d334d; 
+    font-family: 'Raleway', sans-serif;
+height: 30px;
+width: 380px;
+margin: 20px 0 20px 0;
+padding: 2px;
+}
+section{
+    margin: 10px 0 10px 0;
+}
+label{
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+input, option{
+    font-size: 12x;
+    font-family: 'Raleway', sans-serif;
+}
+image{
+    height: 150px;
+    width: auto;
+}
+.content{
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 26em;
+    flex-wrap: wrap;
+}
+.col_1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    /* list-style: none; */
+    height: 200px;
+}
+
+
+/* .{
+    height: 300px;
+    width: 400px;
+    background-color: rgb(83, 92, 99);
+    color: rgb(255, 204, 0);
+
+} */
+.card p{
+    font-family: 'Roboto Slab', serif;
+    color: white;
+}
+.card h2{
+    font-family: 'Rubik Burned', system-ui;
+}
+h3{
+   text-align: center;
+
+}
+#userContent{
+    height: 100px;
+}
+
+.post_img{
+    height: 200px;
+    width: auto;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}

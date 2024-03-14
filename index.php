@@ -113,7 +113,11 @@ include "header.php";
         </div>
        
     </section>
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example"  style="
+    display: flex;
+    justify-content: center;
+">
+
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">

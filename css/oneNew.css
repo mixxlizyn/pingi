@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15px;
+    gap: 20px;
+}
+.header-div1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+}
+.hr1 {
+    width: 1px;
+    height: 50px;
+    background-color: #D9DADB;
+}
+.header-div2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 50%;
+}
+.header-div3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+.hr2 {
+    margin: 0 auto;
+    width: 1600px;
+    height: 1px;
+    background-color: #D9DADB;
+}
+.logo-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 1%;
+}
+.date-weather {
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.section {
+    background-color: #262D33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+.section li  {
+    list-style: none;
+  
+}
+.section li a {
+    text-decoration: none;
+    color: #fff;
+}
+h2{
+   text-align: center;
+   margin: 20px 0 10px 0;
+}
+
+#userImages{
+border: none;
+}
+
+.sort{
+    display: flex;
+    margin: 10px 0 10px 0;
+    align-items: center;
+    gap: 50px;
+    justify-content: center
+}
+label{
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+input, option{
+    font-size: 12x;
+    font-family: 'Raleway', sans-serif;
+}
+
+#img{
+    height: 150px;
+    width: auto;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+.card{
+    padding: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 400px;
+    width: 500px;
+    background-color: rgb(83, 92, 99);
+    color: rgb(255, 204, 0);
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+
+}
+.card p{
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    font-size: 20px;
+    font-size: 20px;
+}
+.card h2{
+    font-family: 'Rubik Burned', system-ui;
+}
+.card a{
+    color: rgb(255, 204, 0);
+    text-decoration: none;
+   text-align: center;
+   font-family: 'Rubik Burned', system-ui;
+}

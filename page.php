@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 include "header.php";
-$user = $_COOKIE['user'];
+$username = isset($_SESSION["user_id"]) ?  mysqli_fetch_assoc(mysqli_query($con, 'select login from users where user_id=' .$_SESSION["user_id"]))["login"] : false;
 
 
 $userEmail = $_POST["email"];
@@ -17,7 +17,7 @@ $userLogin = $_POST["login"];
 </head>
 <body>
 
-  <h1>Добро пожаловать, <?= $user ?>!</h1>
+  <h1>Добро пожаловать, <?=$username?>!</h1>
   <a href="exit.php">Что бы выйти нажмите по ссылке.</a>
 </body>
 </html> 

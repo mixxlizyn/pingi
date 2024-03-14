@@ -1,7 +1,10 @@
 <?php
+
 include "connect.php"; 
-$query_category = "SELECT * from categories ";
-$categories = mysqli_fetch_all(mysqli_query($con, $query_category));
+session_start();
+$categories = mysqli_fetch_all(mysqli_query($con, "SELECT * from categories"));
+$username = isset($_SESSION["user_id"]) ?  mysqli_fetch_assoc(mysqli_query($con, 'select login from users where user_id=' .$_SESSION["user_id"]))["login"] : false;
+
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +47,18 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
               
             
         </form>
+        
+        <?php if($username){?>
+<a href="page.php">
+    <?=$username?>
+</a>
+<?php } ?>
         <div class="header-div3">
             <img src="Image/Man.png" alt="">
-            <a href="auth.php">Войти</a>
-            <a href="auth.php">Регистрация</a>
+ 
+         <a href='sign<?=(!$username) ? "in" : "out" ?>.php' class="d-flex align-items-center">
+        <?= (!$username) ? "Вход" : "Выход"?>
+        </a>
 
         </div>
       
