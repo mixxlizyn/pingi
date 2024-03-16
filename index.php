@@ -1,7 +1,6 @@
 <?php 
 include "connect.php"; //выражение include вкл и выполняет указанный файл 
-
- 
+include "header.php"; 
 
 $id_cat=isset($_GET['cat'])?$_GET['cat']: false;
 $sort=isset($_GET["sort"])?$_GET["sort"]: false; 
@@ -19,8 +18,7 @@ $offset=$page * $paginate_count-$paginate_count;
 
 if($sort)
 { 
-    
-    // $params .="sort=$sort";
+  
     $quary = "SELECT *  FROM news  order by   $sort"; 
 } 
  
@@ -29,7 +27,7 @@ if ($id_cat)
     $params .="id_cat=$id_cat";
     $quary = "SELECT *  FROM news WHERE category_id  = $id_cat"; 
 } 
-if ($id_cat && $sort) 
+if ($sort && $id_cat) 
 { 
     
     $quary = "SELECT *  FROM news WHERE category_id  = $id_cat order by   $sort"; 
@@ -43,7 +41,7 @@ $news = mysqli_query($con, $quary. " LIMIT $paginate_count OFFSET $offset");
 $count_news=mysqli_num_rows(mysqli_query($con, $quary));
 
 
-include "header.php"; 
+
 ?> 
  
 <!DOCTYPE html> 
@@ -54,28 +52,13 @@ include "header.php";
     <link rel="stylesheet" href="css/style.css">    
 
     <title>Пингмяувины</title> 
- 
-   
-    
-
-
-
-
-<!-- ссылки -->
-
 </head> 
-<body> 
-<h1>    
-<!-- <a href="#">
-    Пингмяувины
-</a>
-</h1> -->
- 
+<body>     
 <section class="sort">
         <h4>Сортировка по публикации</h4>
     <ul>
         <li>
-<a href="/?sort= publish_date ASC<?=($params!='')?'&'.$params:''?>"><img width="20px" src="images\icons\asc-sort.png" alt="asc"></a>
+<a href="/?sort=  ASC<?=($params!='')?'&'.$params:''?>"><img width="20px" src="images\icons\asc-sort.png" alt="asc"></a>
 <a href="/?sort= publish_date DESC <?=($params!='')?'&'.$params:''?>"><img  width="20px" src="images\icons\desc-sort.png" alt="desc"></a>
 
     </li>
@@ -86,8 +69,6 @@ include "header.php";
 
  
 <hr>
-<!--     
-       <div id="searchResults"></div> -->
 <section class="last-news">
       <div class="container">
       <?php

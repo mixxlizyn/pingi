@@ -17,7 +17,7 @@ $userLogin = $_POST["login"];
 </head>
 <body>
 
-  <h1>Добро пожаловать, <?=$username?>!</h1>
+  <h1>Приветули, <?=$username?>!</h1>
   <a href="exit.php">Что бы выйти нажмите по ссылке.</a>
 </body>
 </html> 

@@ -80,11 +80,11 @@ if($username){?>
         <h3 class="mb-3"><img src="images\icons\comment40.png" alt="comment">Комментарии | <?=mysqli_num_rows($comments_result)?>  </h3>
         <?php if (mysqli_num_rows($comments_result)){
             foreach ($comments as $comment){?>
-            <?= "<b>$comment[2] </b>" ." пишет:"?>
+            <?= "<b>$comment[2] </b>"." пишет:"?>
             <br>
 <?=$comment[0];?>
 <br>
-<?="<p class='comment_date'>date_new($comment[1])</p>" ;?> <br>
+<?= date_new($comment[1]);?> <br>
 <hr width=100px>
 <?php
             }
