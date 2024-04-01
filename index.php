@@ -14,7 +14,6 @@ $quary="select * from news";
 $paginate_count=3;//n lim
 $page=isset($_GET['page'])?$_GET['page']: 1;
 
-$offset=$page * $paginate_count-$paginate_count;
 
 if($sort)
 { 
@@ -36,9 +35,12 @@ if($search)
 {
     $quary = "SELECT * FROM news where title LIKE '%$search%'";
 }
-$news = mysqli_query($con, $quary. " LIMIT $paginate_count OFFSET $offset"); 
-// пагинаци
+$offset=$page * $paginate_count-$paginate_count;
+
 $count_news=mysqli_num_rows(mysqli_query($con, $quary));
+
+$news = mysqli_query($con, $quary . " LIMIT $paginate_count OFFSET $offset"); 
+// пагинаци
 
 
 
@@ -58,7 +60,7 @@ $count_news=mysqli_num_rows(mysqli_query($con, $quary));
         <h4>Сортировка по публикации</h4>
     <ul>
         <li>
-<a href="/?sort=  ASC<?=($params!='')?'&'.$params:''?>"><img width="20px" src="images\icons\asc-sort.png" alt="asc"></a>
+<a href="/?sort=publish_date  ASC<?=($params!='')?'&'.$params:''?>"><img width="20px" src="images\icons\asc-sort.png" alt="asc"></a>
 <a href="/?sort= publish_date DESC <?=($params!='')?'&'.$params:''?>"><img  width="20px" src="images\icons\desc-sort.png" alt="desc"></a>
 
     </li>
