@@ -10,10 +10,8 @@ $user = mysqli_fetch_assoc($result);
 if (count($user) == 0) {
     echo "Такой пользователь не найден";
     exit();
-} else if (count($user) == 1) {
-    echo "Логин или пароль введены неверно";
-    exit();
-} else {
+}
+ else {
     $_SESSION["user_id"] = $user["user_id"];
 
     header('Location: page.php');
