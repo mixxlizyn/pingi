@@ -1,11 +1,12 @@
 <?php
-include "connect.php"; 
+include "connect.php";
 // $query_category = "SELECT * from categories ";
 // $categories = mysqli_fetch_all(mysqli_query($con, $query_category));
 include "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,10 @@ include "header.php";
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- <div class="header">
         <div class="header-div1">
@@ -55,27 +57,27 @@ include "header.php";
     </div>
     <div class="section">
         <?php
- foreach($categories as $category){ 
-    echo "<li><a href='#'>$category[1]</a></li>"; 
-     
-    } 
-     
+        foreach ($categories as $category) {
+            echo "<li><a href='#'>$category[1]</a></li>";
+
+        }
+
         ?>
     </div> -->
     <h2>Добавить пост</h2>
     <main>
- 
+
         <form action="createNewValid.php" method="POST" enctype="multipart/form-data">
             <label for="userTitle">Напишите заголовок</label>
             <br>
             <input type="text" id="userTitle" name="userTitle">
             <br>
-    
+
             <label for="userImages">Загрузите изображение</label>
             <br>
             <input type="file" id="userImages" name="userImages" accept="image/*">
             <br>
-            
+
             <label for="userContent">Напишите текст</label>
 
             <br>
@@ -87,20 +89,21 @@ include "header.php";
             <label for="userCategory">Выберите категорию:</label>
             <br>
 
-            <select id="userCategory" name="userCategory" >
-            <?php 
-            foreach($categories as $category)  {
-                $id_cat = $category[0];
-                $name = $category[1];
-            echo "<option value ='$id_cat'>$name</option>";
-}
-?>
+            <select id="userCategory" name="userCategory">
+                <?php
+                foreach ($categories as $category) {
+                    $id_cat = $category[0];
+                    $name = $category[1];
+                    echo "<option value ='$id_cat'>$name</option>";
+                }
+                ?>
             </select>
             <br>
             <input type="submit" value="Отправить">
 
 
-        </form> 
+        </form>
     </main>
 </body>
+
 </html>

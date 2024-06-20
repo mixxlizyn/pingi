@@ -1,6 +1,5 @@
-
 <?php
-include "../connect.php"; 
+include "../connect.php";
 $id = isset($_POST["id"]) ? $_POST["id"] : false;
 $userTitle = isset($_POST["userTitle"]) ? $_POST["userTitle"] : false;
 $userContent = isset($_POST["userContent"]) ? $_POST["userContent"] : false;
@@ -17,8 +16,8 @@ $new_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM news where news
 $query_update = "UPDATE news SET ";
 
 $check_update = false;
+$query_update .= "title = '$userTitle', ";
 if ($new_info["title"] != $userTitle) {
-    $query_update .= "title = '$userTitle', ";
     $check_update = true;
 }
 
@@ -39,7 +38,7 @@ if ($userImages) {
 }
 
 if ($check_update) {
-    $query_update = rtrim($query_update, ", "); 
+    $query_update = rtrim($query_update, ", ");
     $query_update .= " WHERE news_id = $id";
     $result = mysqli_query($con, $query_update);
     if ($result) {

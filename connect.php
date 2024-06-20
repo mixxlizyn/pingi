@@ -1,3 +1,2 @@
-<?php 
-$con = mysqli_connect("localhost","root", "", "pingi");
-?>
+<?php
+$con = mysqli_connect("localhost", "root", "", "pingi");
